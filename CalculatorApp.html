@@ -8,7 +8,10 @@
 	<meta name="orange-mobile-web-app-capable" content="yes" />
 
 	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.0.1/jquery.mobile-1.0.1.min.css" />
-	<style> .dragimg ></style>
+	<style> 
+		.dragimg {width:55px;height:55px}
+		.num {width:60px;height:60px}
+	</style>
 	<script src="http://code.jquery.com/jquery-1.6.4.min.js"></script>
 	<script src="http://code.jquery.com/mobile/1.0.1/jquery.mobile-1.0.1.min.js"></script>
 	<script src="http://code.jquery.com/ui/1.8.24/jquery-ui.min.js"></script>
@@ -28,32 +31,33 @@
 		
 	</div>
 	<div>
-		<img class="dragimg" src="orange.gif"/>
-		<img class="dragimg"  src="orange.gif"/>
-		<img class="dragimg"  src="orange.gif"/>
-		<img class="dragimg"  src="orange.gif"/>
-		<img class="dragimg"  src="orange.gif"/>
-		<img class="dragimg"  src="orange.gif"/>
-		<img class="dragimg"  src="orange.gif"/>
-		<img class="dragimg" src="orange.gif"/>
+		<img class="dragimg" src="images/apple.png"/>
+		<img class="dragimg"  src="images/apple.png"/>
+		<img class="dragimg"  src="images/apple.png"/>
+		<img class="dragimg"  src="images/apple.png"/>
+		<img class="dragimg"  src="images/apple.png"/>
+		<img class="dragimg"  src="images/apple.png"/>
+		<img class="dragimg"  src="images/apple.png"/>
+		<img class="dragimg" src="images/apple.png"/>
 	</div>
 	<div id="plate">
-		
+		<img src="images/plate.png"/>
 	</div>
-	<div data-role="controlgroup" data-type="horizontal" style="text-align:center">
-		<a class="num" data-role="button">0</a>
-		<a class="num" data-role="button">1</a>
-		<a class="num" data-role="button">2</a>
-		<a class="num" data-role="button">3</a>
-		<a class="num" data-role="button">4</a>
-		<a class="num" data-role="button">5</a>
-		<a class="num" data-role="button">6</a>
-		<a class="num" data-role="button">7</a>
-		<a class="num" data-role="button">8</a>
-		<a class="num" data-role="button">9</a>
-		
+	<div class="ui-grid-d">
+		<div class="ui-block-a"><img src="images/number0.png" class="num" data-role="button" value='0'/></div>
+		<div class="ui-block-b"><img src="images/number1.png" class="num" data-role="button" value='1'/></div>
+		<div class="ui-block-c"><img src="images/number2.png" class="num" data-role="button" value='2'/></div>
+		<div class="ui-block-d"><img src="images/number3.png" class="num" data-role="button" value='3'/></div>
+		<div class="ui-block-e"><img src="images/number4.png" class="num" data-role="button" value='4'/></div>
 	</div>
-	
+	<div class="ui-grid-d">
+		<div class="ui-block-a"><img src="images/number5.png" class="num" data-role="button" value='5'/></div>
+		<div class="ui-block-b"><img src="images/number6.png" class="num" data-role="button" value='6'/></div>
+		<div class="ui-block-c"><img src="images/number7.png" class="num" data-role="button" value='7'/></div>
+		<div class="ui-block-d"><img src="images/number8.png" class="num" data-role="button" value='8'/></div>
+		<div class="ui-block-e"><img src="images/number9.png" class="num" data-role="button" value='9'/></div>
+	</div>
+		
 	
 	<footer data-role="footer" id="mainpagefooter">
 		<a href="#resultpage" id="btnConfirm">Confirm</a>
@@ -77,9 +81,10 @@
 
 
 $(".num").click(function() {
+			
             var num1 = parseInt($("#randomNum1").html());
 			var num2 = parseInt($("#randomNum2").html());			
-			$("#userinput").val(($(this).text()));
+			$("#userinput").val(($(this).attr('value')));
 			
 			if ($("#userinput").val() == (num1+num2))
 			{
