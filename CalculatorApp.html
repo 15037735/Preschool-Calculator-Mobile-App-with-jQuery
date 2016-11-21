@@ -8,14 +8,7 @@
 	<meta name="orange-mobile-web-app-capable" content="yes" />
 
 	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.0.1/jquery.mobile-1.0.1.min.css" />
-	<style> 
-		#sum { width: 95%; height:20%; }
-		#draggablecontainer { width: 95%; height:40%; border:2px solid #ccc; padding: 10px; }
-		#plate { width: 95%; height:40%; }
-		.dragimg {width:55px;height:55px;}
-		.num {width:60px;height:60px;}
-		.ui-grid-d { width: 95%; height:20%; }
-	</style>
+	
 	<script src="http://code.jquery.com/jquery-1.6.4.min.js"></script>
 	<script src="http://code.jquery.com/mobile/1.0.1/jquery.mobile-1.0.1.min.js"></script>
 	<script src="http://code.jquery.com/ui/1.8.24/jquery-ui.min.js"></script>
@@ -23,6 +16,17 @@
   	<!-- (Start) Add jQuery UI Touch Punch -->
   	<script src="jquery.ui.touch-punch.min.js"></script>
   	<!-- (End) Add jQuery UI Touch Punch -->
+	
+	<style> 
+		#sum { width: 95%; height:20%; text-align:center; color:red; }
+		#draggablecontainer { width: 95%; height:40%; text-align:center; }
+		#plate { width: 95%; height:40%; }
+		
+		.dragimg {width:55px;height:55px;}
+		.num {width:60px;height:60px;}
+		.ui-grid-d { width: 95%; height:20%; }
+	</style>
+	
 
 </head>
 <body>
@@ -31,19 +35,19 @@
 		<h4>Fruit Addition</h4>
 	</header><!-- /header -->
 	<div id="sum">
-		<span id="randomNum1"></span> + <span id="randomNum2"></span> = <input type="text" id="userinput" value="?" style="display:inline"/>
+		<h1 color="red"><span id="randomNum1"></span> + <span id="randomNum2"></span> = <input type="text" id="userinput" value="?" style="display:inline"/></h1>
 		
 	</div>
-	<div class="draggable ui-widget-content" id="draggablecontainer">
+	<div id="draggablecontainer">
     	<img class="dragimg" src="images/apple.png"/>
-		<img class="dragimg"  src="images/apple.png"/>
-		<img class="dragimg"  src="images/apple.png"/>
-		<img class="dragimg"  src="images/apple.png"/>
-		<img class="dragimg"  src="images/apple.png"/>
-		<img class="dragimg"  src="images/apple.png"/>
-		<img class="dragimg"  src="images/apple.png"/>
 		<img class="dragimg" src="images/apple.png"/>
-	
+		<img class="dragimg" src="images/apple.png"/>
+		<img class="dragimg" src="images/apple.png"/>
+		<img class="dragimg" src="images/apple.png"/>
+		<img class="dragimg" src="images/apple.png"/>
+		<img class="dragimg" src="images/apple.png"/>
+		<img class="dragimg" src="images/apple.png"/>
+		<img class="dragimg" src="images/apple.png"/>
 		<img src="images/plate.png" id="plate"/>
 	</div>
 	<div class="ui-grid-d">
@@ -118,7 +122,8 @@ $(document).ready(function() {
 			$("#randomNum1").html(Math.floor((Math.random() * 4) + 1));
 			$("#randomNum2").html(Math.floor((Math.random() * 4) + 1));
 
-			$(".dragimg").draggable({ containment: "parent" });
+			$(".dragimg").draggable({ containment: "#draggablecontainer" });
+
 });
 
 
