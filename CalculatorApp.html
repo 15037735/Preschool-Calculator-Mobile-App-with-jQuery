@@ -18,7 +18,7 @@
   	<!-- (End) Add jQuery UI Touch Punch -->
 	
 	<style> 
-		#sum { width: 95%; height:20%; text-align:center; color:red; }
+		#sum { width: 95%; height:20%; text-align:center; color:green; font-size:80px; }
 		#draggablecontainer { width: 95%; height:40%; text-align:center; }
 		#plate { width: 95%; height:40%; }
 		
@@ -35,8 +35,11 @@
 		<h4>Fruit Addition</h4>
 	</header><!-- /header -->
 	<div id="sum">
-		<h1 color="red"><span id="randomNum1"></span> + <span id="randomNum2"></span> = <input type="text" id="userinput" value="?" style="display:inline"/></h1>
-		
+		<span id="randomNum1"></span>
+		+ 
+		<span id="randomNum2"></span> 
+		= 
+		<span id="question">?</span>	
 	</div>
 	<div id="draggablecontainer">
     	<img class="dragimg" src="images/apple.png"/>
@@ -48,7 +51,7 @@
 		<img class="dragimg" src="images/apple.png"/>
 		<img class="dragimg" src="images/apple.png"/>
 		<img class="dragimg" src="images/apple.png"/>
-		<img src="images/plate.png" id="plate"/>
+		<img src="images/plate_white.png" id="plate"/>
 	</div>
 	<div class="ui-grid-d">
 		<div class="ui-block-a"><img src="images/number0.png" class="num" data-role="button" value='0'/></div>
@@ -67,21 +70,14 @@
 		
 	
 	<footer data-role="footer" id="mainpagefooter">
-		<a href="#resultpage" id="btnConfirm">Confirm</a>
+		
 	</footer><!-- /footer -->
 </section><!-- /mainpage -->
 
 <section data-role="page" id="resultpage">
-	<header data-role="header">
-		<h4>Result</h4>
-	</header><!-- /header -->
+
+	<button id="back" href="#mainpage"><img src="images/play_again.png" data-role="button" /></button>
 	
-	<div id="result">
-		
-	</div>
-	<footer data-role="footer">
-		<button id="back" href="#mainpage">Go Back</button>
-	</footer><!-- /footer -->
 </section><!-- /resultpage -->
 
 <script>
@@ -91,34 +87,31 @@ $(".num").click(function() {
 			
             var num1 = parseInt($("#randomNum1").html());
 			var num2 = parseInt($("#randomNum2").html());			
-			$("#userinput").val(($(this).attr('value')));
+			//$(".num").val(($(this).attr('value')));
 			
-			if ($("#userinput").val() == (num1+num2))
+			if ($(this).attr('value') == (num1+num2))
 			{
-				$("#result").html("WELL DONE");
+				$(location).attr('href','#resultpage');
 			}
 			else
 			{
 				$("#result").html("WRONG");
 			}
-			$("#btnConfirm").show();
-			
-			//document.getElementById("mainpagefooter").innerHTML = "<a href='#resultpage'>Confirm</a>";
-			
+						
         });
 		
 $("#back").click(function() {
-            $("#btnConfirm").hide();
+            
 			$("#randomNum1").html(Math.floor((Math.random() * 4) + 1));
 			$("#randomNum2").html(Math.floor((Math.random() * 4) + 1));
 			
-			$("#userinput").val("?");
+			
 			
 			$(location).attr('href','#mainpage');
         });
 
 $(document).ready(function() {
-			$("#btnConfirm").hide();
+
 			$("#randomNum1").html(Math.floor((Math.random() * 4) + 1));
 			$("#randomNum2").html(Math.floor((Math.random() * 4) + 1));
 
