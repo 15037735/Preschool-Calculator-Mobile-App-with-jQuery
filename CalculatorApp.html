@@ -18,30 +18,31 @@
   	<!-- (End) Add jQuery UI Touch Punch -->
 	
 	<style> 
-		#sum { width: 95%; height:20%; text-align:center; color:green; font-size:80px; }
-		#draggablecontainer { width: 95%; height:40%; text-align:center; }
-		#plate { width: 95%; height:40%; }
+		#sum { width: 95%; height:20%; text-align:center; color:green; font-size:80px; position: relative; }
+		#draggablecontainer { width: 92%; height:40%; text-align:center; }
+		#plate { width: 90%; height:40%; }
 		
-		.dragimg {width:55px;height:55px;}
-		.num {width:60px;height:60px;}
-		.ui-grid-d { width: 95%; height:20%; }
+		.dragimg {width:55px;height:55px; text-align:center;}
+		.num {width:60px;height:60px; text-align:center;}
+		.ui-grid-d { width: 95%; height:20%; text-align:center; }
 	</style>
 	
 
 </head>
 <body>
-<section data-role="page" id="mainpage">
-	<header data-role="header">
+<section data-role="page" id="mainpage" >
+	<!--<header data-role="header">
 		<h4>Fruit Addition</h4>
-	</header><!-- /header -->
-	<div id="sum">
-		<span id="randomNum1"></span>
-		+ 
-		<span id="randomNum2"></span> 
-		= 
-		<span id="question">?</span>	
+	</header> /header -->
+	<div class="ui-grid-d" id="sum">
+		<div class="ui-block-a"><span id="randomNum1"></span></div>
+		<div class="ui-block-b">+</div>
+		<div class="ui-block-c"><span id="randomNum2"></span></div>
+		<div class="ui-block-d">=</div>
+		<div class="ui-block-e"><div id="question" class="ui-widget-content ui-corner-all">?</div></div>
 	</div>
-	<div id="draggablecontainer">
+	
+	<div id="draggablecontainer" class="ui-body ui-body-b">
     	<img class="dragimg" src="images/apple.png"/>
 		<img class="dragimg" src="images/apple.png"/>
 		<img class="dragimg" src="images/apple.png"/>
@@ -69,14 +70,14 @@
 	</div>
 		
 	
-	<footer data-role="footer" id="mainpagefooter">
+	<!--<footer data-role="footer" id="mainpagefooter">
 		
-	</footer><!-- /footer -->
+	</footer> /footer -->
 </section><!-- /mainpage -->
 
 <section data-role="page" id="resultpage">
 
-	<button id="back" href="#mainpage"><img src="images/play_again.png" data-role="button" /></button>
+	<button id="playagain" href="#mainpage"><img src="images/play_again.png" data-role="button" /></button>
 	
 </section><!-- /resultpage -->
 
@@ -95,18 +96,27 @@ $(".num").click(function() {
 			}
 			else
 			{
-				$("#result").html("WRONG");
+				
+				$("#question").animate({
+					  color: "#aa0000",
+					}, 200 );
+				$("#question").effect( "bounce", {}, 200, callback );
+    
 			}
 						
         });
 		
-$("#back").click(function() {
+function callback() {
+      setTimeout(function() {
+        $( "#question" ).removeAttr( "style" ).fadeIn();
+      }, 500 );
+    };
+		
+$("#playagain").click(function() {
             
 			$("#randomNum1").html(Math.floor((Math.random() * 4) + 1));
 			$("#randomNum2").html(Math.floor((Math.random() * 4) + 1));
-			
-			
-			
+
 			$(location).attr('href','#mainpage');
         });
 
