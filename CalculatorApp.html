@@ -25,6 +25,9 @@
 		.dragimg {width:55px;height:55px; text-align:center;}
 		.num {width:60px;height:60px; text-align:center;}
 		.ui-grid-d { width: 95%; height:20%; text-align:center; }
+		
+		#playagain {width:220px;height:200px; text-align:center;}
+		.star {width:60px;height:60px; text-align:center; padding-top:20px;}
 	</style>
 	
 
@@ -76,8 +79,50 @@
 </section><!-- /mainpage -->
 
 <section data-role="page" id="resultpage">
+	<div class="ui-grid-d">
+		<div class="ui-block-a"><img src="images/star_kids.png" class="star"/></div>
+		<div class="ui-block-b"><img src="images/star_kids.png" class="star"/></div>
+		<div class="ui-block-c"><img src="images/star_kids.png" class="star"/></div>
+		<div class="ui-block-d"><img src="images/star_kids.png" class="star"/></div>
+		<div class="ui-block-e"><img src="images/star_kids.png" class="star"/></div>
+	</div>
+	<div class="ui-grid-d" id="sum">
+		<div class="ui-block-a"><span id="num1"></span></div>
+		<div class="ui-block-b">+</div>
+		<div class="ui-block-c"><span id="num2"></span></div>
+		<div class="ui-block-d">=</div>
+		<div class="ui-block-e"><span id="answer"></span></div>
+	</div>
+	<div class="ui-grid-d">
+		<div class="ui-block-a"></div>
+		<div class="ui-block-b"><img src="images/play_again.png" id="playagain" href="#mainpage" data-role="button" /></div>
+		<div class="ui-block-c"></div>
+		<div class="ui-block-d"></div>
+		<div class="ui-block-e"></div>
+	</div>
+		
+	<div class="ui-grid-d">
+		<div class="ui-block-a"><img src="images/star_kids.png" class="star"/></div>
+		<div class="ui-block-b"><img src="images/star_kids.png" class="star"/></div>
+		<div class="ui-block-c"><img src="images/star_kids.png" class="star"/></div>
+		<div class="ui-block-d"><img src="images/star_kids.png" class="star"/></div>
+		<div class="ui-block-e"><img src="images/star_kids.png" class="star"/></div>
+	</div>
 
-	<button id="playagain" href="#mainpage"><img src="images/play_again.png" data-role="button" /></button>
+	<div class="ui-grid-d">
+		<div class="ui-block-a"><img src="images/star_kids.png" class="star"/></div>
+		<div class="ui-block-b"><img src="images/star_kids.png" class="star"/></div>
+		<div class="ui-block-c"><img src="images/star_kids.png" class="star"/></div>
+		<div class="ui-block-d"><img src="images/star_kids.png" class="star"/></div>
+		<div class="ui-block-e"><img src="images/star_kids.png" class="star"/></div>
+	</div>
+	<div class="ui-grid-d">
+		<div class="ui-block-a"><img src="images/thumbs_up.png" class="star"/></div>
+		<div class="ui-block-b"><img src="images/thumbs_up.png" class="star"/></div>
+		<div class="ui-block-c"><img src="images/thumbs_up.png" class="star"/></div>
+		<div class="ui-block-d"><img src="images/thumbs_up.png" class="star"/></div>
+		<div class="ui-block-e"><img src="images/thumbs_up.png" class="star"/></div>
+	</div>
 	
 </section><!-- /resultpage -->
 
@@ -92,6 +137,9 @@ $(".num").click(function() {
 			
 			if ($(this).attr('value') == (num1+num2))
 			{
+				$("#num1").html(num1);
+				$("#num2").html(num2);
+				$("#answer").html(($(this).attr('value')));
 				$(location).attr('href','#resultpage');
 			}
 			else
