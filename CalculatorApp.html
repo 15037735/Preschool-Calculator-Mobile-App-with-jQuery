@@ -141,6 +141,7 @@ $(".num").click(function() {
 				$("#num2").html(num2);
 				$("#answer").html(($(this).attr('value')));
 				$(location).attr('href','#resultpage');
+				$(".star").effect( "pulsate", {}, 1000, callback );
 			}
 			else
 			{
